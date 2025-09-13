@@ -77,9 +77,13 @@ def menu_filtrar_um(rows):
 def menu_filtrar_varios(rows):
     criterios = []
     while True:
-        field = input("Campo (ou ENTER p/ terminar): ").strip()
+        field = input("age,sex,bmi,children,smoker,region,charges \n Campo (ou ENTER p/ terminar): ").strip()
+
         if not field:
             break
+        if field == "smoker" or field == "region":
+            print("Use o filtro específico para essa coluna.")
+            continue
         op = input("Operador (>,<,>=,<=,==): ").strip()
         raw = input("Valor: ").strip()
         value = CAST[field](raw)
